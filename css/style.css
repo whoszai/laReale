@@ -155,7 +155,6 @@ section.home {
   position: relative;
   overflow: hidden;
 }
-
 section.home::before {
   content: '🍕';
   font-size: 7rem;
@@ -424,6 +423,9 @@ main.menu section p {
   line-height: 1.5;
   transition: background-color 0.15s;
   border-radius: 4px;
+}
+#extra p {
+  display: block;
 }
 
 main.menu section p:last-of-type {
