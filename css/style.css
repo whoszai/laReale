@@ -414,15 +414,16 @@ main.menu section h3 {
 }
 
 main.menu section p {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.3rem 0.5rem;
-  padding: 0.55rem 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.4rem 1.2rem;
+  padding: 0.55rem 0.5rem;
   border-bottom: 1px dotted var(--crema-sc);
   font-size: 0.93rem;
   line-height: 1.5;
   transition: background-color 0.15s;
+  border-radius: 4px;
 }
 
 main.menu section p:last-of-type {
@@ -430,7 +431,7 @@ main.menu section p:last-of-type {
 }
 
 main.menu section p:hover {
-  background-color: var(--crema);
+  background-color: rgba(255, 255, 255, 0.06);
   border-radius: 4px;
 }
 
@@ -438,7 +439,7 @@ main.menu section p strong {
   color: var(--marrone);
   font-size: 0.95rem;
   letter-spacing: 0.03em;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 /* Prezzi */
@@ -475,7 +476,7 @@ section.altro p {
 }
 
 section.altro p:hover {
-  background-color: rgba(255,255,255,0.06) !important;
+  background-color: rgba(255,255,255,0.1) !important;
 }
 
 /* Link download nel menu */
@@ -529,7 +530,7 @@ footer img {
 ============================== */
 @media (max-width: 700px) {
   header h2 { font-size: 1.8rem; }
-  header img { width: 70px; height: auto; }
+  header img { max-width: 70px; height: auto; }
 
   nav a {
     padding: 0.85rem 1.2rem;
