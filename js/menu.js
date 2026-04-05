@@ -205,8 +205,10 @@ function menu() {
 
     const extra = dati.menu.extra;
     containerExtra.innerHTML += `
-      <p><strong>Aggiunte</strong>: ${extra.aggiunte}</p>
-      <p><strong>Impasti</strong>: Integrale (${extra.impasti.integrale}), Baby (${extra.impasti.baby})</p>
+      <p>
+            <strong>Aggiunte</strong>: da +1.00€ a +3.50€ <br>
+            <strong>Impasti</strong>: Integrale (+2.00€), Baby (-0.50€)
+        </p>
     `;
 
 }
