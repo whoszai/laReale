@@ -207,8 +207,12 @@ function menu() {
 
     containerExtra.innerHTML += `
         <p>
-            <strong>Aggiunte</strong>: ${extra.aggiunte} <br>
-            <strong>Impasti</strong>: Integrale (${extra.impasti.integrale}), Baby (${extra.impasti.baby})
+          <span><strong>Aggiunte</strong></span>
+          <span class="prezzi">${extra.aggiunte}</span>
+        </p>
+        <p>
+          <span><strong>Impasti</strong></span>
+          <span class="prezzi">Integrale (${extra.impasti.integrale}), Baby (${extra.impasti.baby})</span>
         </p>
     `;
 
