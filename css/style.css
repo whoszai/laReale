@@ -1,0 +1,563 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+/* ==============================
+   VARIABILI & RESET
+============================== */
+:root {
+  --rosso:     #C0392B;
+  --rosso-sc:  #922B21;
+  --crema:     #FDF6EC;
+  --crema-sc:  #F5E6CC;
+  --marrone:   #4A2C0A;
+  --marrone-ch:#7B4F1E;
+  --grigio:    #3D3D3D;
+  --bianco:    #FFFFFF;
+  --ombra:     rgba(74, 44, 10, 0.15);
+  --ombra-sc:  rgba(74, 44, 10, 0.3);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--crema);
+  color: var(--grigio);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* ==============================
+   HEADER
+============================== */
+header {
+  background-color: var(--marrone);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(192, 57, 43, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(192, 57, 43, 0.12) 0%, transparent 60%);
+  color: var(--crema);
+  text-align: center;
+  padding: 2.5rem 1rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+header img {
+  max-width: 180px;
+  max-height: 180px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.8rem;
+  filter: drop-shadow(0 4px 12px var(--ombra-sc));
+}
+
+header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--crema);
+  line-height: 1.1;
+}
+
+header h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--crema-sc);
+  letter-spacing: 0.15em;
+  margin-top: 0.3rem;
+}
+
+/* ==============================
+   NAVIGAZIONE
+============================== */
+nav {
+  background-color: var(--rosso);
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 10px var(--ombra-sc);
+}
+
+nav a {
+  color: var(--bianco);
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1rem 2.2rem;
+  transition: background-color 0.2s, color 0.2s;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: var(--crema);
+  transition: width 0.25s ease;
+}
+
+nav a:hover {
+  background-color: var(--rosso-sc);
+}
+
+nav a:hover::after {
+  width: 60%;
+}
+
+/* ==============================
+   MAIN & SEZIONI GENERALI
+============================== */
+main {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+/* ==============================
+   HOME
+============================== */
+section.home {
+  background: var(--bianco);
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 4px 24px var(--ombra);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+section.home::before {
+  content: '🍕';
+  font-size: 7rem;
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  opacity: 0.06;
+  transform: rotate(15deg);
+  pointer-events: none;
+  line-height: 1;
+}
+
+section.home p {
+  font-size: 1.1rem;
+  color: var(--grigio);
+  max-width: 620px;
+  margin: 0 auto 2rem;
+  line-height: 1.85;
+}
+
+/* ==============================
+   BOTTONI HOME
+============================== */
+
+/* Bottone primario "Ordina ora" */
+section.home > a:not(.btn_download) {
+  display: inline-block;
+  background-color: var(--marrone);
+  color: var(--crema);
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1rem 2.6rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px var(--ombra-sc);
+  transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  margin-bottom: 0.8rem;
+}
+
+section.home > a:not(.btn_download):hover {
+  background-color: var(--marrone-ch);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--ombra-sc);
+}
+
+/* Bottone secondario download */
+.btn_download {
+  display: inline-block;
+  background-color: var(--rosso);
+  color: var(--bianco);
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.85rem 2.2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(192,57,43,0.4);
+  transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.btn_download:hover {
+  background-color: var(--rosso-sc);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(192,57,43,0.5);
+}
+
+/* ==============================
+   CONTATTI
+============================== */
+section.contatti {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.8rem;
+}
+
+#map {
+  grid-column: 1 / -1;
+  background: var(--bianco);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 24px var(--ombra);
+  text-align: center;
+}
+
+#map p:first-child {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--marrone);
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+
+p.indirizzo {
+  font-size: 1rem;
+  color: var(--marrone-ch);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+#map iframe {
+  width: 100%;
+  max-width: 700px;
+  height: 320px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 2px 10px var(--ombra);
+}
+
+.info {
+  background: var(--bianco);
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 4px 24px var(--ombra);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info a {
+  color: var(--rosso);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.info a:hover {
+  color: var(--rosso-sc);
+  text-decoration: underline;
+}
+
+.info p {
+  font-size: 0.95rem;
+  color: var(--grigio);
+}
+
+.info span {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--marrone);
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.info ul {
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  color: var(--grigio);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.social {
+  background: var(--marrone);
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 4px 24px var(--ombra-sc);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social p {
+  color: var(--crema);
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--crema);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 0.5rem 0.8rem 0;
+  padding: 0.5rem 1rem;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.social a:hover {
+  background-color: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.6);
+}
+
+.social img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) invert(1);
+}
+
+/* Avviso allergeni */
+main > span {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--marrone-ch);
+  font-style: italic;
+  text-align: center;
+  border-top: 1px solid var(--crema-sc);
+  padding-top: 1rem;
+}
+
+/* ==============================
+   MENU
+============================== */
+main.menu h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: var(--marrone);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+main.menu h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--rosso);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+main.menu section {
+  background: var(--bianco);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px var(--ombra);
+}
+
+main.menu section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--marrone);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--crema-sc);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+main.menu section p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.5rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px dotted var(--crema-sc);
+  font-size: 0.93rem;
+  line-height: 1.5;
+  transition: background-color 0.15s;
+}
+
+main.menu section p:last-of-type {
+  border-bottom: none;
+}
+
+main.menu section p:hover {
+  background-color: var(--crema);
+  padding-left: 0.5rem;
+  border-radius: 4px;
+  margin: 0 -0.5rem;
+}
+
+main.menu section p strong {
+  color: var(--marrone);
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+/* Prezzi */
+.normale, .familiare {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.normale {
+  color: var(--rosso);
+  font-size: 0.9rem;
+}
+
+.normale::before { content: 'Norm. '; font-weight: 400; color: var(--grigio); font-size: 0.78rem; }
+
+.familiare {
+  color: var(--marrone-ch);
+  font-size: 0.9rem;
+}
+
+.familiare::before { content: '/ Fam. '; font-weight: 400; color: var(--grigio); font-size: 0.78rem; }
+
+/* Sezione "altro" in fondo al menu */
+section.altro {
+  background: var(--marrone) !important;
+  color: var(--crema) !important;
+}
+
+section.altro p {
+  color: var(--crema) !important;
+  border-bottom-color: rgba(255,255,255,0.15) !important;
+  font-size: 0.88rem !important;
+}
+
+section.altro p:hover {
+  background-color: rgba(255,255,255,0.06) !important;
+}
+
+/* Link download nel menu */
+main.menu > div {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+footer {
+  background-color: var(--marrone);
+  color: var(--crema-sc);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+footer div {
+  margin-bottom: 0.8rem;
+}
+
+footer p {
+  color: rgba(253,246,236,0.7);
+}
+
+footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0 0.5rem;
+  transition: opacity 0.2s;
+}
+
+footer a:hover {
+  opacity: 0.75;
+}
+
+footer img {
+  width: 26px;
+  height: 26px;
+  filter: brightness(0) invert(1);
+  vertical-align: middle;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media (max-width: 700px) {
+  header h2 { font-size: 1.8rem; }
+  header img { width: 70px; height: auto; }
+
+  nav a {
+    padding: 0.85rem 1.2rem;
+    font-size: 0.78rem;
+  }
+
+  section.contatti {
+    grid-template-columns: 1fr;
+  }
+
+  #map { grid-column: 1; }
+
+  #map iframe { height: 250px; }
+
+  section.home { padding: 2rem 1.2rem; }
+
+  main.menu section {
+    padding: 1.2rem 1rem;
+  }
+
+  main.menu section p {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 450px) {
+  main { padding: 0 0.8rem; }
+  main.menu h1 { font-size: 1.7rem; }
+}
