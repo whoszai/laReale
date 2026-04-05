@@ -298,7 +298,7 @@ p.indirizzo {
   color: var(--grigio);
 }
 
-.info span {
+.info > span {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   font-size: 1rem;
